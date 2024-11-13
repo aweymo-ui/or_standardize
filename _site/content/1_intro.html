@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Introduction | Using OpenRefine to Standardize Metadata Language</title>
+<meta name="description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference">
+<meta name="keywords" content="">
+<meta name="author" content="Andrew Weymouth">
+<link rel="icon" type="image/png" href="http://localhost:4000/or_standardize/favicon.png">
+
+<!--
+  _      __         __        __           ______               __     __     
+ | | /| / /__  ____/ /__ ___ / /  ___  ___/_  __/__ __ _  ___  / /__ _/ /____ 
+ | |/ |/ / _ \/ __/  '_/(_-</ _ \/ _ \/ _ \/ / / -_)  ' \/ _ \/ / _ `/ __/ -_)
+ |__/|__/\___/_/ /_/\_\/___/_//_/\___/ .__/_/  \__/_/_/_/ .__/_/\_,_/\__/\__/ 
+                                    /_/                /_/                    
+
+    built with workshop-template-b, evanwill, https://github.com/evanwill/workshop-template-b
+--> 
+   
+<!-- Open Graph meta -->
+<meta property="og:title" content="Introduction | Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference" />
+<meta property="og:image" content="http://localhost:4000/or_standardize/images/banner.gif" />
+<meta property="og:site_name" content="Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:url" content="http://localhost:4000/or_standardize/content/1_intro.html" />
+<meta property="og:locale" content="en_US" />
+<!-- schema.org JSON-LD -->
+<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Introduction | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/1_intro.html" }</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/or_standardize/assets/lib/spotlight.min.css">
+<link rel="stylesheet" href="/or_standardize/assets/lib/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/or_standardize/assets/css/styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+
+<!-- Last build date: 2024-11-13 -->
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <div id="skip-to-content"><a href="#maincontent">Skip to main content</a></div>
+    <header>
+    <nav class="navbar navbar-light pb-lg-0 border-bottom" style="background-color: #F0F8FF;">
+    <div class="container">
+        <h1 class="navbar-brand" style="white-space: normal;"><a href="/or_standardize/">
+            
+            Using OpenRefine to Standardize Metadata Language
+        </a></h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul class="navbar-nav nav-tabs justify-content-end">
+            
+                <li class="nav-item">
+                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/1_intro.html">
+                        
+                            Introduction
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/2_cluster.html">
+                        
+                            Importing and Clustering
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/3_format.html">
+                        
+                            Formatting and Exporting
+                        
+                    </a>
+                </li>
+            
+            </ul>  
+        </div>
+    </div>
+</nav>
+
+    </header>
+
+    <main id="maincontent" role="main" aria-label="Content" class="flex-shrink-0">
+      
+      <div class="container my-4">
+<h1>Introduction</h1>
+
+<div class="ms-5 mb-3 border-bottom">
+    </div>
+    
+<div class="my-4">
+
+<h2 id="why-openrefine-over-google-sheets">Why OpenRefine Over Google Sheets?</h2>
+
+<p><br /></p>
+
+<p><strong>While Google Sheets can handle basic find-and-replace or manual editing</strong>, OpenRefine offers specialized features for bulk data cleaning and transformation:</p>
+
+<ul>
+  <li>
+    <p><strong>Clustering Algorithms</strong>: OpenRefine uses algorithms to automatically group similar entries that might be misspelled or inconsistently formatted, allowing you to merge them efficiently.</p>
+  </li>
+  <li>
+    <p><strong>Scripted Transformations with GREL</strong>: You can write expressions in GREL to transform text in powerful ways that are not available in Google Sheets.</p>
+  </li>
+  <li>
+    <p><strong>Faceting</strong>: Facets allow you to view subsets of your data based on specific characteristics. For example, you can filter a column to only show rows with a particular keyword, which helps locate inconsistencies.</p>
+  </li>
+</ul>
+
+<p>These features make OpenRefine ideal for cleaning up data quickly and accurately, especially in large datasets where doing this manually would be time-consuming.</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h2 id="how-clustering-algorithms-in-openrefine-work">How Clustering Algorithms in OpenRefine Work</h2>
+
+<p><br /></p>
+
+<p><strong>Clustering algorithms in OpenRefine identify groups of values that are similar but not identical</strong>. They rely on techniques that analyze the similarity or distance between different strings, grouping values that meet certain similarity criteria. OpenRefine then allows you to merge these grouped values into a standardized form.</p>
+
+<p>Here are the main clustering methods and their underlying principles:</p>
+
+<h3 id="key-collision">Key Collision</h3>
+<p>The Key Collision method is a phonetic algorithm that groups values based on a shared “key.” It essentially tries to ignore minor differences between similar words and considers how they sound, which makes it useful for names or words with common spelling variations.</p>
+
+<h4 id="key-collision-algorithms">Key Collision Algorithms</h4>
+
+<ul>
+  <li><strong>Fingerprinting</strong>:
+This method is one of the simplest approaches. It:
+    <ul>
+      <li>Strips out punctuation and converts all letters to lowercase.</li>
+      <li>Sorts the words alphabetically.</li>
+      <li>Removes duplicates.</li>
+      <li>Creates a “fingerprint” (unique key) from the resulting string.</li>
+    </ul>
+  </li>
+  <li>
+    <p>For example, “Mark Twain” and “twain, mark” both result in the fingerprint “mark twain,” grouping these values together.</p>
+  </li>
+  <li><strong>Phonetic Algorithms</strong>:
+    <ul>
+      <li><strong>Metaphone</strong> and <strong>Double Metaphone</strong>: These algorithms convert words into codes based on how they sound. For example, “Smith” and “Smyth” might be converted into the same phonetic code.</li>
+      <li>Soundex: This groups words with similar sounds. It’s helpful for catching misspellings that still sound correct, though it’s less precise with non-English words.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="when-to-use-key-collision">When to Use Key Collision</h4>
+
+<p><strong>Key Collision works well for fields where phonetic similarities matter</strong>, like personal names or locations with alternate spellings (e.g., “New York City” and “N.Y.C.”).</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h3 id="nearest-neighbor">Nearest Neighbor</h3>
+
+<p><br /></p>
+
+<p>The <em>Nearest Neighbor</em> method uses a “distance” measure to find strings that are spelled similarly. It’s based on edit distance, meaning it looks at the number of changes needed to transform one string into another.</p>
+
+<h4 id="nearest-neighbor-algorithms">Nearest Neighbor Algorithms</h4>
+
+<ul>
+  <li><strong>Levenshtein Distance</strong>: Measures the number of single-character edits (insertions, deletions, or substitutions) required to change one string into another. For example, “color” and “colour” have a small Levenshtein distance because only one letter differs.</li>
+  <li><strong>Jaccard Similarity</strong>: Compares the similarity between two sets of characters or words. It’s often used to find matches when there’s a high probability of extra or missing words.</li>
+  <li><strong>PPM (Prediction by Partial Matching)</strong>: Looks at repeated patterns and attempts to predict similarities based on how often parts of the string match.</li>
+</ul>
+
+<h4 id="when-to-use-nearest-neighbor">When to Use Nearest Neighbor</h4>
+
+<p>Nearest Neighbor is ideal for catching minor typos, misspellings, or small differences in data entries. This is helpful when working with long strings or phrases that might contain small but crucial differences (e.g., “Metropolitan Museum” and “Metropolitan Museum of Art”).</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h3 id="choosing-clustering-parameters-key-collisions-vs-nearest-neighbor">Choosing Clustering Parameters: Key Collisions vs. Nearest Neighbor</h3>
+
+<p>In OpenRefine, you’ll often adjust parameters to determine how strict or lenient the clustering is. For example:</p>
+
+<ul>
+  <li><strong>Distance Threshold (Nearest Neighbor)</strong>: Lowering the threshold makes clustering more lenient, grouping more items together, while a higher threshold makes it stricter, grouping only very close matches.</li>
+  <li><strong>Normalization (Key Collision)</strong>: Options like lowercasing and removing whitespace standardize how values are treated, ensuring that “New York” and “new york” are considered the same.</li>
+</ul>
+
+<h4 id="combining-algorithms">Combining Algorithms</h4>
+
+<p>OpenRefine lets you re-cluster data after merging. For example:</p>
+
+<ol>
+  <li>You can start with a broad Key Collision method, merging general clusters.</li>
+  <li>Then, apply a Nearest Neighbor method for a more fine-grained cleanup.</li>
+</ol>
+
+<h4 id="example-of-using-clustering-in-openrefine">Example of Using Clustering in OpenRefine</h4>
+
+<ol>
+  <li>Suppose you have a column with author names like “Mark Twain,” “Twain, Mark,” “Mark Twian,” and “M. Twain.”</li>
+  <li>Using the Key Collision clustering method:
+    <ul>
+      <li>OpenRefine might group “Mark Twain” and “Twain, Mark” because they sound alike or share a similar fingerprint.</li>
+    </ul>
+  </li>
+  <li>Then, using the Nearest Neighbor method:
+    <ul>
+      <li>OpenRefine might identify “Mark Twian” as a close match to “Mark Twain” because the edit distance is small.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>After clustering, you can choose a standardized format (e.g., “Mark Twain”) and apply it across all grouped entries.</p>
+
+
+
+</div>
+
+</div>
+      
+    </main>
+
+    <footer class="site-footer bg-light-blue mt-auto">
+  <div class="container">
+    <nav class="mt-3 mb-4">
+      <ul class="nav nav-pills nav-fill">
+        
+        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/1_intro.html">Introduction</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_cluster.html">Importing and Clustering</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/3_format.html">Formatting and Exporting</a></li>
+        
+      </ul>
+    </nav>
+    <div class="row align-items-center pb-5">
+        <div id="footer-title" class="col-md">
+          <a class="h5" href="/or_standardize/">Using OpenRefine to Standardize Metadata Language</a>
+          <br>
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0, </a> 2024 <a href="https://github.com/aweymo-ui">Andrew Weymouth</a>
+        </div>
+        <div class="col-md">
+          
+          <script>
+            function site_search() {
+              var query = document.getElementById("site-search").value;
+              window.open("/or_standardize/search/index.html?q=" + encodeURIComponent(query), "_self" );
+            }
+          </script>
+          <form class="form-inline my-2 my-lg-0 float-end" role="search" id="search" onsubmit="site_search(); return false;">
+            <div class="input-group">
+              <input id="site-search" class="form-control" type="text" placeholder="Search" aria-label="Search box">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/> </svg><span class="visually-hidden">submit search</span></button>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Bootstrap JS bundle -->
+<script src="/or_standardize/assets/lib/bootstrap.bundle.min.js"></script>
+<!-- load other optional js -->
+
+
+<script src="/or_standardize/assets/lib/lazysizes.min.js" async></script>
+<script src="/or_standardize/assets/lib/spotlight.min.js" defer></script>
+<script>
+    // When the user scrolls down from the top of the document, show the button
+    window.onscroll = function () {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            document.getElementById("scroll-to-top").style.display = "block";
+            document.getElementById("scroll-to-top").style.color = "#00448c"; // Change button color to #00448c
+        } else {
+            document.getElementById("scroll-to-top").style.display = "none";
+        }
+    }
+    // scroll to top function
+    function scrollToTop() {
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'
+        });
+    }
+</script>
+<button id="scroll-to-top" type="button" class="btn btn-link btn-lg" onclick="scrollToTop();" title="Back to Top" aria-label="Back to Top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/> </svg>
+</button>
+
+
+
+  </body>
+
+</html>

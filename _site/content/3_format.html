@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Formatting and Exporting | Using OpenRefine to Standardize Metadata Language</title>
+<meta name="description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference">
+<meta name="keywords" content="">
+<meta name="author" content="Andrew Weymouth">
+<link rel="icon" type="image/png" href="http://localhost:4000/or_standardize/favicon.png">
+
+<!--
+  _      __         __        __           ______               __     __     
+ | | /| / /__  ____/ /__ ___ / /  ___  ___/_  __/__ __ _  ___  / /__ _/ /____ 
+ | |/ |/ / _ \/ __/  '_/(_-</ _ \/ _ \/ _ \/ / / -_)  ' \/ _ \/ / _ `/ __/ -_)
+ |__/|__/\___/_/ /_/\_\/___/_//_/\___/ .__/_/  \__/_/_/_/ .__/_/\_,_/\__/\__/ 
+                                    /_/                /_/                    
+
+    built with workshop-template-b, evanwill, https://github.com/evanwill/workshop-template-b
+--> 
+   
+<!-- Open Graph meta -->
+<meta property="og:title" content="Formatting and Exporting | Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference" />
+<meta property="og:image" content="http://localhost:4000/or_standardize/images/banner.gif" />
+<meta property="og:site_name" content="Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:url" content="http://localhost:4000/or_standardize/content/3_format.html" />
+<meta property="og:locale" content="en_US" />
+<!-- schema.org JSON-LD -->
+<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Formatting and Exporting | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/3_format.html" }</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/or_standardize/assets/lib/spotlight.min.css">
+<link rel="stylesheet" href="/or_standardize/assets/lib/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/or_standardize/assets/css/styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+
+<!-- Last build date: 2024-11-13 -->
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <div id="skip-to-content"><a href="#maincontent">Skip to main content</a></div>
+    <header>
+    <nav class="navbar navbar-light pb-lg-0 border-bottom" style="background-color: #F0F8FF;">
+    <div class="container">
+        <h1 class="navbar-brand" style="white-space: normal;"><a href="/or_standardize/">
+            
+            Using OpenRefine to Standardize Metadata Language
+        </a></h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul class="navbar-nav nav-tabs justify-content-end">
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/1_intro.html">
+                        
+                            Introduction
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/2_cluster.html">
+                        
+                            Importing and Clustering
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/3_format.html">
+                        
+                            Formatting and Exporting
+                        
+                    </a>
+                </li>
+            
+            </ul>  
+        </div>
+    </div>
+</nav>
+
+    </header>
+
+    <main id="maincontent" role="main" aria-label="Content" class="flex-shrink-0">
+      
+      <div class="container my-4">
+<h1>Formatting and Exporting</h1>
+
+<div class="ms-5 mb-3 border-bottom">
+    </div>
+    
+<div class="my-4">
+
+<h3 id="standardizing-author-names-to-last-name-first-name-format">Standardizing Author Names to “Last Name, First Name” Format</h3>
+
+<p>To transform names like “First Last” into “Last, First” format, you can use General Refine Expression Language (GREL) to split and reorder the names. Here’s a   -by-   guide:</p>
+
+<p>a. <strong>Identify the Author Column</strong>: Select the column where author names are listed.</p>
+
+<p>b. <strong>Create a Text Transformation</strong>:</p>
+<ul>
+  <li>Click on the column dropdown menu.</li>
+  <li>Go to <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</li>
+</ul>
+
+<p>c. <strong>Enter the Transformation Expression</strong>:</p>
+<ul>
+  <li>In the GREL transformation box, enter the following code to split and reorder names:
+    <pre><code class="language-grel">if(value.contains(" "), value.split(" ")[1] + ", " + value.split(" ")[0], value)
+</code></pre>
+  </li>
+  <li>This expression checks if there’s a space in the name (indicating “First Last” format) and then splits the name into first and last. It then reorders it as “Last, First.”</li>
+  <li>Click <strong>“OK”</strong> to apply the transformation.</li>
+</ul>
+
+<p>d. <strong>Handling Middle Names or Initials</strong>: If you have middle names or initials that need to be preserved, you can use a slightly more advanced expression to handle names with additional components:
+     <code class="language-plaintext highlighter-rouge">grel
+     if(value.contains(" "), value.split(" ")[-1] + ", " + value.split(" ")[0] + " " + value.slice(1,-1).join(" "), value)
+    </code></p>
+<ul>
+  <li>This expression keeps the last name at the beginning, followed by the first name and any middle names or initials.</li>
+</ul>
+
+<p>e. <strong>Review and Adjust</strong>: Review the transformed column for accuracy, especially if there are any entries with unusual name formats. You can manually correct any that don’t fit the standard pattern.</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h3 id="standardizing-subject-names-to-getty-standards">Standardizing Subject Names to Getty Standards</h3>
+<p>For subject names, ensuring compliance with a controlled vocabulary like the Getty Vocabularies (e.g., Art &amp; Architecture Thesaurus, Thesaurus of Geographic Names) typically involves matching each term to its preferred form in the Getty standards. OpenRefine doesn’t natively support direct access to Getty Vocabularies, but you can still standardize names with a few steps:</p>
+
+<p>a. <strong>Import a List of Getty-Compliant Terms (Optional)</strong>:</p>
+<ul>
+  <li>If you have access to a list of Getty-approved terms for your subject field, you can create a CSV or text file with these terms.</li>
+  <li>Import this list into OpenRefine as a new project to use as a reference.</li>
+</ul>
+
+<p>b. <strong>Use Reconciliation Services</strong>:</p>
+<ul>
+  <li>OpenRefine allows you to use reconciliation services to match terms in your dataset to external standards. There are third-party services for various vocabularies, and sometimes institutions make custom reconciliation services available for specific vocabularies.</li>
+  <li><strong>Add a reconciliation service</strong>: Go to the <strong>Reconciliation</strong> tab in OpenRefine. If you have a URL for a reconciliation service that includes Getty terms, you can add it here. This might require some setup or access permissions.</li>
+</ul>
+
+<p>c. <strong>Match Subject Terms to Getty Standards</strong>:</p>
+<ul>
+  <li>If a reconciliation service isn’t available, you can manually compare your subject names against the Getty list by clustering and editing:
+    <ul>
+      <li><strong>Clustering</strong>: Use <strong>Key Collision</strong> and <strong>Nearest Neighbor</strong> clustering to find variants of the same term (e.g., “Photography” vs. “Photographic Arts”).</li>
+      <li><strong>Edit to Getty Standard</strong>: For each cluster, standardize the term according to Getty’s preferred term from the reference list.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>d. <strong>Create Custom Transformations</strong> (for minor adjustments):</p>
+<ul>
+  <li>If you know certain terms need to be converted (e.g., “Sculpture” should be “Sculpture (visual work)”), you can use <strong>Edit cells</strong> &gt; <strong>Transform…</strong> with GREL expressions like:
+    <pre><code class="language-grel">if(value=="Sculpture", "Sculpture (visual work)", value)
+</code></pre>
+  </li>
+  <li>Repeat this for any commonly used terms that need to conform to Getty standards.</li>
+</ul>
+
+<p>e. <strong>Manual Adjustments</strong>: Once the bulk of your terms are standardized, review the remaining subject names and manually edit any outliers to match Getty terms.</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h3 id="lowercasing-and-removing-whitespace">Lowercasing and Removing Whitespace</h3>
+
+<p>a. In the column menu (e.g., location name), choose <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</p>
+
+<p>b. <strong>Enter transformations</strong> in GREL (General Refine Expression Language) to standardize formats:</p>
+
+<ul>
+  <li>To make all entries title case (capitalizing each word): Use <code class="language-plaintext highlighter-rouge">value.toTitlecase()</code>.</li>
+  <li>To make entries lowercase: Use <code class="language-plaintext highlighter-rouge">value.toLowercase()</code>.</li>
+  <li>To trim extra whitespace: Use <code class="language-plaintext highlighter-rouge">value.trim()</code>.</li>
+</ul>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h3 id="export-the-standardized-data">Export the Standardized Data</h3>
+
+<p>a. After standardizing both author and subject columns, export your project by going to <strong>Export</strong> &gt; <strong>Comma-separated value (CSV)</strong>.</p>
+
+<p>b. Verify that the standardized data displays correctly in UTF-8 encoding, ensuring consistency and compatibility for CollectionBuilder requirements.</p>
+
+
+</div>
+
+</div>
+      
+    </main>
+
+    <footer class="site-footer bg-light-blue mt-auto">
+  <div class="container">
+    <nav class="mt-3 mb-4">
+      <ul class="nav nav-pills nav-fill">
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/1_intro.html">Introduction</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_cluster.html">Importing and Clustering</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/3_format.html">Formatting and Exporting</a></li>
+        
+      </ul>
+    </nav>
+    <div class="row align-items-center pb-5">
+        <div id="footer-title" class="col-md">
+          <a class="h5" href="/or_standardize/">Using OpenRefine to Standardize Metadata Language</a>
+          <br>
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0, </a> 2024 <a href="https://github.com/aweymo-ui">Andrew Weymouth</a>
+        </div>
+        <div class="col-md">
+          
+          <script>
+            function site_search() {
+              var query = document.getElementById("site-search").value;
+              window.open("/or_standardize/search/index.html?q=" + encodeURIComponent(query), "_self" );
+            }
+          </script>
+          <form class="form-inline my-2 my-lg-0 float-end" role="search" id="search" onsubmit="site_search(); return false;">
+            <div class="input-group">
+              <input id="site-search" class="form-control" type="text" placeholder="Search" aria-label="Search box">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/> </svg><span class="visually-hidden">submit search</span></button>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Bootstrap JS bundle -->
+<script src="/or_standardize/assets/lib/bootstrap.bundle.min.js"></script>
+<!-- load other optional js -->
+
+
+<script src="/or_standardize/assets/lib/lazysizes.min.js" async></script>
+<script src="/or_standardize/assets/lib/spotlight.min.js" defer></script>
+<script>
+    // When the user scrolls down from the top of the document, show the button
+    window.onscroll = function () {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            document.getElementById("scroll-to-top").style.display = "block";
+            document.getElementById("scroll-to-top").style.color = "#00448c"; // Change button color to #00448c
+        } else {
+            document.getElementById("scroll-to-top").style.display = "none";
+        }
+    }
+    // scroll to top function
+    function scrollToTop() {
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'
+        });
+    }
+</script>
+<button id="scroll-to-top" type="button" class="btn btn-link btn-lg" onclick="scrollToTop();" title="Back to Top" aria-label="Back to Top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/> </svg>
+</button>
+
+
+
+  </body>
+
+</html>
