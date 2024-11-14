@@ -34,5 +34,5 @@ var store = [
     { 
         "url": "/or_standardize/",
         "title": "Home",
-        "text": "CALS Liaison Introduction Contents: Introduction Installing and Importing Splitting, Clustering and Joining Name Formatting Find and Replace Formatting and Exporting Content: CC BY-NC-ND 4.0 Andrew Weymouth 2024 (get source code). Theme: Variation on workshop-template-b by evanwill"
+        "text": "CALS Liaison Introduction Minimal tutorial on using OpenRefine for metadata language standardization for faculty, staff, patrons and students at U of I. The focus of this work has been to provide only the steps you need to perform these tasks. There is a mountain of other functionalities this tool has to offer and, if you are interested, I highly recommend my colleague Evan Williamson’s multiple OpenRefine workshops! Contents: Introduction Installing and Importing Splitting, Clustering and Joining Name Formatting Find and Replace Formatting and Exporting Content: CC BY-NC-ND 4.0 Andrew Weymouth 2024 (get source code). Theme: Variation on workshop-template-b by evanwill"
     }];
