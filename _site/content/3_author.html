@@ -4,7 +4,7 @@
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Home | Using OpenRefine to Standardize Metadata Language</title>
+<title>Splitting, Clustering and Joining | Using OpenRefine to Standardize Metadata Language</title>
 <meta name="description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference">
 <meta name="keywords" content="">
 <meta name="author" content="Andrew Weymouth">
@@ -21,15 +21,15 @@
 --> 
    
 <!-- Open Graph meta -->
-<meta property="og:title" content="Home | Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:title" content="Splitting, Clustering and Joining | Using OpenRefine to Standardize Metadata Language" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference" />
 <meta property="og:image" content="http://localhost:4000/or_standardize/images/banner.gif" />
 <meta property="og:site_name" content="Using OpenRefine to Standardize Metadata Language" />
-<meta property="og:url" content="http://localhost:4000/or_standardize/" />
+<meta property="og:url" content="http://localhost:4000/or_standardize/content/3_author.html" />
 <meta property="og:locale" content="en_US" />
 <!-- schema.org JSON-LD -->
-<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Home | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/" }</script>
+<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Splitting, Clustering and Joining | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/3_author.html" }</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +84,7 @@
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link p-3 h-100" href="/or_standardize/content/3_author.html">
+                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/3_author.html">
                         
                             Splitting, Clustering and Joining
                         
@@ -125,49 +125,101 @@
     <main id="maincontent" role="main" aria-label="Content" class="flex-shrink-0">
       
       <div class="container my-4">
-<figure class="figure d-block text-center p-3">
-    <a class="spotlight" href="/or_standardize/images/banner.png" title="CALS Liaison Introduction"><img data-src="/or_standardize/images/banner.png" alt="Title card with a photo of the author and an image of a data visualization" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">CALS Liaison Introduction</figcaption></figure>
+<h1>Splitting, Clustering and Joining</h1>
 
-<div class="row justify-content-center">
-    <div class="m-3 col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="h4 card-title">Contents:</h2>
-                <ul>
-                    
-                    <li><a href="/or_standardize/content/1_intro.html">Introduction</a> </li>
-                    
-                    <li><a href="/or_standardize/content/2_install.html">Installing and Importing</a> </li>
-                    
-                    <li><a href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a> </li>
-                    
-                    <li><a href="/or_standardize/content/4_name.html">Name Formatting</a> </li>
-                    
-                    <li><a href="/or_standardize/content/5_replace.html">Find and Replace</a> </li>
-                    
-                    <li><a href="/or_standardize/content/6_subject.html">Formatting and Exporting</a> </li>
-                    </ul>
-            </div>
-        </div>
+<div class="ms-5 mb-3 border-bottom">
     </div>
+    
+<div class="my-4">
+
+<p><br /></p>
+
+<p>Looking first at the <code class="language-plaintext highlighter-rouge">creator</code> field, let’s use OpenRefine’s clustering feature to identify and merge similar but non-identical values across a large dataset.</p>
+
+<h3 id="split-the-creator-field-into-individual-names">Split the Creator Field into Individual Names</h3>
+
+<div class="alert feature-alert alert-light text-center" role="alert">
+<p>Note: You will only need to do this step  and the final joining step with columns that contain multiple items separated by semi-colons</p>
+
 </div>
 
-<hr />
+<p>a. <strong>Select the Creator Column</strong>: In the column menu for the creator field, click the dropdown.</p>
 
-<p><strong>Content:</strong> CC BY-NC-ND 4.0 <a href="https://github.com/aweymo-ui">Andrew Weymouth</a> 2024 (get <a href="https://github.com/aweymo-ui/or_standardize" target="_blank" rel="noopener">source code</a>). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></p>
-<p><strong>Theme:</strong> Variation on <a href="https://github.com/evanwill/workshop-template-b" target="_blank" rel="noopener">workshop-template-b</a> by <a href="https://github.com/evanwill/" target="_blank" rel="noopener">evanwill</a></p>
+<p>b. <strong>Choose “Edit cells” &gt; “Split multi-valued cells…”</strong>:</p>
+<ul>
+  <li>Enter <code class="language-plaintext highlighter-rouge">;</code> as the separator to split each name into its own cell within the same column.</li>
+  <li>This will separate names like “Painter, Charles G.; Simpson, William Ray; Parks, F.P.” into three individual rows for each name.</li>
+</ul>
 
-<div class="row">
-    
-    
-    <div class="col-md text-center">
-        <figure class="figure mx-3">
-            <a href="/or_standardize/items/.html">
-                <img class="figure-img img-fluid rounded lazyload" alt="" title="click to see item" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="" />
-            </a>
-            <figcaption class="figure-caption text-center"><a href="/or_standardize/items/.html"></a></figcaption>
-        </figure>
-    </div>
+<h3 id="formatting">Formatting</h3>
+
+<p>Before we cluster, I am noticing that many of the discrepancies between the author names are due to inconsistent whitespace. To correct these items or adjust for upper / lowercasing inconsistencies:</p>
+
+<h3 id="lowercasing-and-removing-whitespace">Lowercasing and Removing Whitespace</h3>
+
+<p>a. In the column menu (e.g., location name), choose <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</p>
+
+<p>b. <strong>Enter transformations</strong> in GREL (General Refine Expression Language) to standardize formats:</p>
+
+<ul>
+  <li>To make all entries title case (capitalizing each word): Use <code class="language-plaintext highlighter-rouge">value.toTitlecase()</code>.</li>
+  <li>To make entries lowercase: Use <code class="language-plaintext highlighter-rouge">value.toLowercase()</code>.</li>
+  <li>To trim extra whitespace: Use <code class="language-plaintext highlighter-rouge">value.trim()</code>.</li>
+</ul>
+
+<h3 id="clustering">Clustering</h3>
+
+<p>a. Click on the <strong>drop-down menu</strong> in the column you want to standardize (e.g., author).</p>
+
+<p>b. Select <strong>“Edit cells”</strong> &gt; <strong>“Cluster and edit…”</strong>.</p>
+
+<ul>
+  <li>A dialog box will open, showing clusters of similar values. For example, it might group “Mark Twain” and “Twain, Mark” as potential matches.</li>
+</ul>
+
+<p>c. Use different <strong>clustering methods</strong> (key collision, nearest neighbor, etc.) to identify similar entries.</p>
+
+<ul>
+  <li>
+    <p><strong>Key Collision</strong>: Groups based on a phonetic algorithm that ignores small differences.</p>
+  </li>
+  <li>
+    <p><strong>Nearest Neighbor</strong>: Groups values based on spelling similarity, which is often helpful for misspelled entries.</p>
+  </li>
+</ul>
+
+<p>d. <strong>Review each cluster</strong>: If you agree with OpenRefine’s grouping, type in the standardized name you want to use (e.g., “Mark Twain”) in the <strong>“New Cell Value”</strong> field and click <strong>“Merge and Re-Cluster”</strong> or <strong>Merge and Close</strong> if you are finished with all of the different algorithms you are interested in applying.</p>
+
+<h3 id="group-names-back-together-with-semicolons">Group Names Back Together with Semicolons</h3>
+
+<p>a. <strong>Select the Creator Column</strong>:</p>
+<ul>
+  <li>In the column menu for the creator field, click the dropdown menu for the column that contains the individual names you previously split.</li>
+</ul>
+
+<p>b. <strong>Choose “Edit cells” &gt; “Join multi-valued cells…”</strong>:</p>
+<ul>
+  <li>This will combine the separate values into one cell.</li>
+</ul>
+
+<p>c. <strong>Set the Separator</strong>:</p>
+<ul>
+  <li>In the dialog box that appears, enter <strong><code class="language-plaintext highlighter-rouge">;</code></strong> as the separator (the same one used when you split the names).</li>
+  <li>This will concatenate the names with a semicolon between each name.</li>
+</ul>
+
+<p>d. <strong>Click “OK”</strong>:</p>
+<ul>
+  <li>This will apply the transformation and group the names back together in the same cells, separated by semicolons.</li>
+</ul>
+
+<div class="alert feature-alert alert-light text-center" role="alert">
+<p>That’s it! This same process can be repeated on location, subject and any other fields needing standardization</p>
+
+</div>
+
+
+
 </div>
 
 </div>
@@ -183,7 +235,7 @@
         
         <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_install.html">Installing and Importing</a></li>
         
-        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a></li>
+        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a></li>
         
         <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/4_name.html">Name Formatting</a></li>
         

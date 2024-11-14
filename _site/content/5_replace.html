@@ -4,7 +4,7 @@
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Importing and Clustering | Using OpenRefine to Standardize Metadata Language</title>
+<title>Find and Replace | Using OpenRefine to Standardize Metadata Language</title>
 <meta name="description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference">
 <meta name="keywords" content="">
 <meta name="author" content="Andrew Weymouth">
@@ -21,15 +21,15 @@
 --> 
    
 <!-- Open Graph meta -->
-<meta property="og:title" content="Importing and Clustering | Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:title" content="Find and Replace | Using OpenRefine to Standardize Metadata Language" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference" />
 <meta property="og:image" content="http://localhost:4000/or_standardize/images/banner.gif" />
 <meta property="og:site_name" content="Using OpenRefine to Standardize Metadata Language" />
-<meta property="og:url" content="http://localhost:4000/or_standardize/content/2_cluster.html" />
+<meta property="og:url" content="http://localhost:4000/or_standardize/content/5_replace.html" />
 <meta property="og:locale" content="en_US" />
 <!-- schema.org JSON-LD -->
-<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Importing and Clustering | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/2_cluster.html" }</script>
+<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Find and Replace | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/5_replace.html" }</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,15 +76,39 @@
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/2_cluster.html">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/2_install.html">
                         
-                            Importing and Clustering
+                            Installing and Importing
                         
                     </a>
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link p-3 h-100" href="/or_standardize/content/3_format.html">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/3_author.html">
+                        
+                            Splitting, Clustering and Joining
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/4_name.html">
+                        
+                            Name Formatting
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/5_replace.html">
+                        
+                            Find and Replace
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/6_subject.html">
                         
                             Formatting and Exporting
                         
@@ -101,117 +125,38 @@
     <main id="maincontent" role="main" aria-label="Content" class="flex-shrink-0">
       
       <div class="container my-4">
-<h1>Importing and Clustering</h1>
+<h1>Find and Replace</h1>
 
 <div class="ms-5 mb-3 border-bottom">
     </div>
     
 <div class="my-4">
 
-<h3 id="install-openrefine">Install OpenRefine</h3>
-
-<p>a. <strong>Download OpenRefine</strong> from <a href="https://openrefine.org/">openrefine.org</a> for your operating system.</p>
-
-<p>b. <strong>Install and launch</strong> OpenRefine following the instructions provided on the site.</p>
-<ul>
-  <li>OpenRefine will open in your web browser but runs locally on your computer.</li>
-</ul>
-
-<div class="symbol-container">
-    <p class="symbol">&#10042;</p>
-</div>
-
 <p><br /></p>
 
-<h3 id="load-your-csv-file">Load Your CSV File</h3>
-
-<p>a. Click <strong>“Create Project”</strong> on the OpenRefine homepage.</p>
-
-<p>b. Click <strong>“Choose Files”</strong> and select your CSV file from your computer.</p>
-
-<p>c. Press <strong>“Next”</strong> to load the data. OpenRefine will display a preview of the data for you to verify that it looks correct.</p>
-
-<p>d. In the next intermediary screen, adjust character encoding to <code class="language-plaintext highlighter-rouge">UTF-8</code>, set column separation to CSV, have the <code class="language-plaintext highlighter-rouge">Parse next 1 line as headers</code> selected and adjust the project name as needed. The <code class="language-plaintext highlighter-rouge">Store Blank Rows</code>, <code class="language-plaintext highlighter-rouge">Store Blank Cells as Nulls</code> and <code class="language-plaintext highlighter-rouge">Use Character " to Enclose Cells Containing Column Separators</code> should be selected by default. These simply ensure data integrity by not erasing null rows and cells and not separating commas within cells, such as <code class="language-plaintext highlighter-rouge">Smith, John</code></p>
-
-<p>e. Click <strong>“Create Project”</strong> to import the data fully.</p>
-
-<div class="symbol-container">
-    <p class="symbol">&#10042;</p>
-</div>
-
-<p><br /></p>
-
-<h3 id="standardization-example">Standardization Example</h3>
-
-<p>To use a practical example for this tutorial, I’ll be using metadata for digital collection of different scholarly publications that needs standardizing. Actions needed:</p>
+<p>To do simpler actions like finding and replacing a limited set in naming variances like we need to do in the <code class="language-plaintext highlighter-rouge">pubtype</code> column:</p>
 
 <ul>
-  <li>In the <code class="language-plaintext highlighter-rouge">creator</code> field, author names need to be standardized and then these names need “last name, first name (or first initial)” formatting</li>
-  <li>In the <code class="language-plaintext highlighter-rouge">pubtype</code> field, “Master Gardener” needs to change to “Master Gardener Program Handbook” and “Pacific Northwest Extension” changes to “Pacific Northwest Extension Publications”</li>
-  <li><code class="language-plaintext highlighter-rouge">Subjects</code> field needs to be standardized and verified as Getty standards (CDIL follows Getty, SPECS follows LCHS… might want to sort that out at some point)</li>
-  <li><code class="language-plaintext highlighter-rouge">Publisher</code> field needs basic standardization</li>
-</ul>
-
-<div class="symbol-container">
-    <p class="symbol">&#10042;</p>
-</div>
-
-<p><br /></p>
-
-<h3 id="cluster-and-standardize-data">Cluster and Standardize Data</h3>
-
-<p>Looking first at the creator field, let’s use OpenRefine’s clustering feature to identify and merge similar but non-identical values across a large dataset.</p>
-
-<h4 id="split-the-creator-field-into-individual-names">Split the Creator Field into Individual Names</h4>
-
-<p>a. <strong>Select the Creator Column</strong>: In the column menu for the creator field, click the dropdown.</p>
-
-<p>b. <strong>Choose “Edit cells” &gt; “Split multi-valued cells…”</strong>:</p>
-<ul>
-  <li>Enter <code class="language-plaintext highlighter-rouge">;</code> as the separator to split each name into its own cell within the same column.</li>
-  <li>This will separate names like “Painter, Charles G.; Simpson, William Ray; Parks, F.P.” into three individual rows for each name.</li>
-</ul>
-
-<h4 id="formatting">Formatting</h4>
-
-<p>Before we cluster, I am noticing that many of the discrepancies between the author names are due to inconsistent whitespace. To correct these items or adjust for upper / lowercasing inconsistencies:</p>
-
-<h3 id="lowercasing-and-removing-whitespace">Lowercasing and Removing Whitespace</h3>
-
-<p>a. In the column menu (e.g., location name), choose <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</p>
-
-<p>b. <strong>Enter transformations</strong> in GREL (General Refine Expression Language) to standardize formats:</p>
-
-<ul>
-  <li>To make all entries title case (capitalizing each word): Use <code class="language-plaintext highlighter-rouge">value.toTitlecase()</code>.</li>
-  <li>To make entries lowercase: Use <code class="language-plaintext highlighter-rouge">value.toLowercase()</code>.</li>
-  <li>To trim extra whitespace: Use <code class="language-plaintext highlighter-rouge">value.trim()</code>.</li>
-</ul>
-
-<h4 id="clustering">Clustering</h4>
-
-<p>a. Click on the <strong>drop-down menu</strong> in the column you want to standardize (e.g., author).</p>
-
-<p>b. Select <strong>“Edit cells”</strong> &gt; <strong>“Cluster and edit…”</strong>.</p>
-
-<ul>
-  <li>A dialog box will open, showing clusters of similar values. For example, it might group “Mark Twain” and “Twain, Mark” as potential matches.</li>
-</ul>
-
-<p>c. Use different <strong>clustering methods</strong> (key collision, nearest neighbor, etc.) to identify similar entries.</p>
-
-<ul>
-  <li>
-    <p><strong>Key Collision</strong>: Groups based on a phonetic algorithm that ignores small differences.</p>
-  </li>
-  <li>
-    <p><strong>Nearest Neighbor</strong>: Groups values based on spelling similarity, which is often helpful for misspelled entries.</p>
+  <li>Select the dropdown menu of the <code class="language-plaintext highlighter-rouge">pubtype</code> column.</li>
+  <li><strong>Apply Transformations</strong>:
+    <ul>
+      <li>Choose <strong>Edit cells</strong> &gt; <strong>Transform…</strong> to open the transformation dialog.</li>
+      <li>Use the following GREL expression to perform multiple replacements in one step:
+        <pre><code class="language-grel">if(value == "Master Gardener", "Master Gardener Program Handbook",
+if(value == "Pacific Northwest Extension", "Pacific Northwest Extension Publications", value))
+</code></pre>
+      </li>
+      <li><strong>Explanation</strong>:
+        <ul>
+          <li>The expression checks if the cell contains “Master Gardener” and changes it to “Master Gardener Program Handbook.”</li>
+          <li>If it contains “Pacific Northwest Extension,” it will be replaced with “Pacific Northwest Extension Publications.”</li>
+          <li>Otherwise, the cell value remains unchanged.</li>
+        </ul>
+      </li>
+      <li>Click <strong>OK</strong> to apply the transformation.</li>
+    </ul>
   </li>
 </ul>
-
-<h4 id="merge-back-into-original-cell-format">Merge Back into original cell format</h4>
-
-<p>a. <strong>Review each cluster</strong>: If you agree with OpenRefine’s grouping, type in the standardized name you want to use (e.g., “Mark Twain”) in the <strong>“New Cell Value”</strong> field and click <strong>“Merge and Re-Cluster”</strong>.</p>
 
 
 
@@ -228,9 +173,15 @@
         
         <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/1_intro.html">Introduction</a></li>
         
-        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/2_cluster.html">Importing and Clustering</a></li>
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_install.html">Installing and Importing</a></li>
         
-        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/3_format.html">Formatting and Exporting</a></li>
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/4_name.html">Name Formatting</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/5_replace.html">Find and Replace</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/6_subject.html">Formatting and Exporting</a></li>
         
       </ul>
     </nav>

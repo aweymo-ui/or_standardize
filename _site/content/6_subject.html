@@ -26,10 +26,10 @@
 <meta property="og:description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference" />
 <meta property="og:image" content="http://localhost:4000/or_standardize/images/banner.gif" />
 <meta property="og:site_name" content="Using OpenRefine to Standardize Metadata Language" />
-<meta property="og:url" content="http://localhost:4000/or_standardize/content/3_format.html" />
+<meta property="og:url" content="http://localhost:4000/or_standardize/content/6_subject.html" />
 <meta property="og:locale" content="en_US" />
 <!-- schema.org JSON-LD -->
-<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Formatting and Exporting | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/3_format.html" }</script>
+<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Formatting and Exporting | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/6_subject.html" }</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,15 +76,39 @@
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link p-3 h-100" href="/or_standardize/content/2_cluster.html">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/2_install.html">
                         
-                            Importing and Clustering
+                            Installing and Importing
                         
                     </a>
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/3_format.html">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/3_author.html">
+                        
+                            Splitting, Clustering and Joining
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/4_name.html">
+                        
+                            Name Formatting
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link p-3 h-100" href="/or_standardize/content/5_replace.html">
+                        
+                            Find and Replace
+                        
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/6_subject.html">
                         
                             Formatting and Exporting
                         
@@ -108,91 +132,9 @@
     
 <div class="my-4">
 
-<h3 id="standardizing-author-names-to-last-name-first-name-format">Standardizing Author Names to “Last Name, First Name” Format</h3>
-
-<p>To transform names like “First Last” into “Last, First” format, you can use General Refine Expression Language (GREL) to split and reorder the names. Here’s a   -by-   guide:</p>
-
-<p>a. <strong>Identify the Author Column</strong>: Select the column where author names are listed.</p>
-
-<p>b. <strong>Create a Text Transformation</strong>:</p>
-<ul>
-  <li>Click on the column dropdown menu.</li>
-  <li>Go to <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</li>
-</ul>
-
-<p>c. <strong>Enter the Transformation Expression</strong>:</p>
-<ul>
-  <li>In the GREL transformation box, enter the following code to split and reorder names:
-    <pre><code class="language-grel">if(value.contains(" "), value.split(" ")[1] + ", " + value.split(" ")[0], value)
-</code></pre>
-  </li>
-  <li>This expression checks if there’s a space in the name (indicating “First Last” format) and then splits the name into first and last. It then reorders it as “Last, First.”</li>
-  <li>Click <strong>“OK”</strong> to apply the transformation.</li>
-</ul>
-
-<p>d. <strong>Handling Middle Names or Initials</strong>: If you have middle names or initials that need to be preserved, you can use a slightly more advanced expression to handle names with additional components:
-     <code class="language-plaintext highlighter-rouge">grel
-     if(value.contains(" "), value.split(" ")[-1] + ", " + value.split(" ")[0] + " " + value.slice(1,-1).join(" "), value)
-    </code></p>
-<ul>
-  <li>This expression keeps the last name at the beginning, followed by the first name and any middle names or initials.</li>
-</ul>
-
-<p>e. <strong>Review and Adjust</strong>: Review the transformed column for accuracy, especially if there are any entries with unusual name formats. You can manually correct any that don’t fit the standard pattern.</p>
-
-<div class="symbol-container">
-    <p class="symbol">&#10042;</p>
-</div>
-
 <p><br /></p>
 
-<h3 id="standardizing-subject-names-to-getty-standards">Standardizing Subject Names to Getty Standards</h3>
-<p>For subject names, ensuring compliance with a controlled vocabulary like the Getty Vocabularies (e.g., Art &amp; Architecture Thesaurus, Thesaurus of Geographic Names) typically involves matching each term to its preferred form in the Getty standards. OpenRefine doesn’t natively support direct access to Getty Vocabularies, but you can still standardize names with a few steps:</p>
-
-<p>a. <strong>Import a List of Getty-Compliant Terms (Optional)</strong>:</p>
-<ul>
-  <li>If you have access to a list of Getty-approved terms for your subject field, you can create a CSV or text file with these terms.</li>
-  <li>Import this list into OpenRefine as a new project to use as a reference.</li>
-</ul>
-
-<p>b. <strong>Use Reconciliation Services</strong>:</p>
-<ul>
-  <li>OpenRefine allows you to use reconciliation services to match terms in your dataset to external standards. There are third-party services for various vocabularies, and sometimes institutions make custom reconciliation services available for specific vocabularies.</li>
-  <li><strong>Add a reconciliation service</strong>: Go to the <strong>Reconciliation</strong> tab in OpenRefine. If you have a URL for a reconciliation service that includes Getty terms, you can add it here. This might require some setup or access permissions.</li>
-</ul>
-
-<p>c. <strong>Match Subject Terms to Getty Standards</strong>:</p>
-<ul>
-  <li>If a reconciliation service isn’t available, you can manually compare your subject names against the Getty list by clustering and editing:
-    <ul>
-      <li><strong>Clustering</strong>: Use <strong>Key Collision</strong> and <strong>Nearest Neighbor</strong> clustering to find variants of the same term (e.g., “Photography” vs. “Photographic Arts”).</li>
-      <li><strong>Edit to Getty Standard</strong>: For each cluster, standardize the term according to Getty’s preferred term from the reference list.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>d. <strong>Create Custom Transformations</strong> (for minor adjustments):</p>
-<ul>
-  <li>If you know certain terms need to be converted (e.g., “Sculpture” should be “Sculpture (visual work)”), you can use <strong>Edit cells</strong> &gt; <strong>Transform…</strong> with GREL expressions like:
-    <pre><code class="language-grel">if(value=="Sculpture", "Sculpture (visual work)", value)
-</code></pre>
-  </li>
-  <li>Repeat this for any commonly used terms that need to conform to Getty standards.</li>
-</ul>
-
-<p>e. <strong>Manual Adjustments</strong>: Once the bulk of your terms are standardized, review the remaining subject names and manually edit any outliers to match Getty terms.</p>
-
-<div class="symbol-container">
-    <p class="symbol">&#10042;</p>
-</div>
-
-<p><br /></p>
-
-<div class="symbol-container">
-    <p class="symbol">&#10042;</p>
-</div>
-
-<p><br /></p>
+<h3 id="reconciliation">Reconciliation?</h3>
 
 <h3 id="export-the-standardized-data">Export the Standardized Data</h3>
 
@@ -214,9 +156,15 @@
         
         <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/1_intro.html">Introduction</a></li>
         
-        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_cluster.html">Importing and Clustering</a></li>
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_install.html">Installing and Importing</a></li>
         
-        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/3_format.html">Formatting and Exporting</a></li>
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/4_name.html">Name Formatting</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/5_replace.html">Find and Replace</a></li>
+        
+        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/6_subject.html">Formatting and Exporting</a></li>
         
       </ul>
     </nav>

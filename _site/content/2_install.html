@@ -4,7 +4,7 @@
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Home | Using OpenRefine to Standardize Metadata Language</title>
+<title>Installing and Importing | Using OpenRefine to Standardize Metadata Language</title>
 <meta name="description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference">
 <meta name="keywords" content="">
 <meta name="author" content="Andrew Weymouth">
@@ -21,15 +21,15 @@
 --> 
    
 <!-- Open Graph meta -->
-<meta property="og:title" content="Home | Using OpenRefine to Standardize Metadata Language" />
+<meta property="og:title" content="Installing and Importing | Using OpenRefine to Standardize Metadata Language" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference" />
 <meta property="og:image" content="http://localhost:4000/or_standardize/images/banner.gif" />
 <meta property="og:site_name" content="Using OpenRefine to Standardize Metadata Language" />
-<meta property="og:url" content="http://localhost:4000/or_standardize/" />
+<meta property="og:url" content="http://localhost:4000/or_standardize/content/2_install.html" />
 <meta property="og:locale" content="en_US" />
 <!-- schema.org JSON-LD -->
-<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Home | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/" }</script>
+<script type="application/ld+json">{ "@context":"http://schema.org", "@type":"WebPage", "headline":"Installing and Importing | Using OpenRefine to Standardize Metadata Language", "author": { "@type":"Person", "name":"Andrew Weymouth"}, "description":"Mini-Tutorial Created as a Reference Tool for Special Collections and CDIL Processing Operations as well as Patron, Student and Faculty Reference", "image": "http://localhost:4000/or_standardize/images/banner.gif", "url":"http://localhost:4000/or_standardize/content/2_install.html" }</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +76,7 @@
                 </li>
             
                 <li class="nav-item">
-                    <a class="nav-link p-3 h-100" href="/or_standardize/content/2_install.html">
+                    <a class="nav-link active p-3 h-100" href="/or_standardize/content/2_install.html">
                         
                             Installing and Importing
                         
@@ -125,49 +125,58 @@
     <main id="maincontent" role="main" aria-label="Content" class="flex-shrink-0">
       
       <div class="container my-4">
-<figure class="figure d-block text-center p-3">
-    <a class="spotlight" href="/or_standardize/images/banner.png" title="CALS Liaison Introduction"><img data-src="/or_standardize/images/banner.png" alt="Title card with a photo of the author and an image of a data visualization" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">CALS Liaison Introduction</figcaption></figure>
+<h1>Installing and Importing</h1>
 
-<div class="row justify-content-center">
-    <div class="m-3 col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="h4 card-title">Contents:</h2>
-                <ul>
-                    
-                    <li><a href="/or_standardize/content/1_intro.html">Introduction</a> </li>
-                    
-                    <li><a href="/or_standardize/content/2_install.html">Installing and Importing</a> </li>
-                    
-                    <li><a href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a> </li>
-                    
-                    <li><a href="/or_standardize/content/4_name.html">Name Formatting</a> </li>
-                    
-                    <li><a href="/or_standardize/content/5_replace.html">Find and Replace</a> </li>
-                    
-                    <li><a href="/or_standardize/content/6_subject.html">Formatting and Exporting</a> </li>
-                    </ul>
-            </div>
-        </div>
+<div class="ms-5 mb-3 border-bottom">
     </div>
+    
+<div class="my-4">
+
+<h3 id="install-openrefine">Install OpenRefine</h3>
+
+<p>a. <strong>Download OpenRefine</strong> from <a href="https://openrefine.org/">openrefine.org</a> for your operating system.</p>
+
+<p>b. <strong>Install and launch</strong> OpenRefine following the instructions provided on the site.</p>
+<ul>
+  <li>OpenRefine will open in your web browser but runs locally on your computer.</li>
+</ul>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
 </div>
 
-<hr />
+<p><br /></p>
 
-<p><strong>Content:</strong> CC BY-NC-ND 4.0 <a href="https://github.com/aweymo-ui">Andrew Weymouth</a> 2024 (get <a href="https://github.com/aweymo-ui/or_standardize" target="_blank" rel="noopener">source code</a>). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></p>
-<p><strong>Theme:</strong> Variation on <a href="https://github.com/evanwill/workshop-template-b" target="_blank" rel="noopener">workshop-template-b</a> by <a href="https://github.com/evanwill/" target="_blank" rel="noopener">evanwill</a></p>
+<h3 id="load-your-csv-file">Load Your CSV File</h3>
 
-<div class="row">
-    
-    
-    <div class="col-md text-center">
-        <figure class="figure mx-3">
-            <a href="/or_standardize/items/.html">
-                <img class="figure-img img-fluid rounded lazyload" alt="" title="click to see item" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="" />
-            </a>
-            <figcaption class="figure-caption text-center"><a href="/or_standardize/items/.html"></a></figcaption>
-        </figure>
-    </div>
+<p>a. Click <strong>“Create Project”</strong> on the OpenRefine homepage.</p>
+
+<p>b. Click <strong>“Choose Files”</strong> and select your CSV file from your computer.</p>
+
+<p>c. Press <strong>“Next”</strong> to load the data. OpenRefine will display a preview of the data for you to verify that it looks correct.</p>
+
+<p>d. In the next intermediary screen, adjust character encoding to <code class="language-plaintext highlighter-rouge">UTF-8</code>, set column separation to CSV, have the <code class="language-plaintext highlighter-rouge">Parse next 1 line as headers</code> selected and adjust the project name as needed. The <code class="language-plaintext highlighter-rouge">Store Blank Rows</code>, <code class="language-plaintext highlighter-rouge">Store Blank Cells as Nulls</code> and <code class="language-plaintext highlighter-rouge">Use Character " to Enclose Cells Containing Column Separators</code> should be selected by default. These simply ensure data integrity by not erasing null rows and cells and not separating commas within cells, such as <code class="language-plaintext highlighter-rouge">Smith, John</code></p>
+
+<p>e. Click <strong>“Create Project”</strong> to import the data fully.</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
+
+<h3 id="standardization-example">Standardization Example</h3>
+
+<p>To use a practical example for this tutorial, I’ll be using metadata for digital collection of different scholarly publications that needs standardizing. Actions needed:</p>
+
+<ul>
+  <li>In the <code class="language-plaintext highlighter-rouge">creator</code> field, author names need to be standardized and then these names need “last name, first name (or first initial)” formatting</li>
+  <li>In the <code class="language-plaintext highlighter-rouge">pubtype</code> field, “Master Gardener” needs to change to “Master Gardener Program Handbook” and “Pacific Northwest Extension” changes to “Pacific Northwest Extension Publications”</li>
+  <li><code class="language-plaintext highlighter-rouge">Subjects</code> field needs to be standardized and verified as Getty standards (CDIL follows Getty, SPECS follows LCHS… might want to sort that out at some point)</li>
+  <li><code class="language-plaintext highlighter-rouge">Publisher</code> field needs basic standardization</li>
+</ul>
+
+
 </div>
 
 </div>
@@ -181,7 +190,7 @@
         
         <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/1_intro.html">Introduction</a></li>
         
-        <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/2_install.html">Installing and Importing</a></li>
+        <li class="nav-item"><a class="nav-link h3 active" href="/or_standardize/content/2_install.html">Installing and Importing</a></li>
         
         <li class="nav-item"><a class="nav-link h3" href="/or_standardize/content/3_author.html">Splitting, Clustering and Joining</a></li>
         
