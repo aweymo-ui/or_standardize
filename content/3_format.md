@@ -67,16 +67,6 @@ e. **Manual Adjustments**: Once the bulk of your terms are standardized, review 
 
 <br>
 
-### Lowercasing and Removing Whitespace
-
-a. In the column menu (e.g., location name), choose **“Edit cells”** > **“Transform…”**.
-
-b. **Enter transformations** in GREL (General Refine Expression Language) to standardize formats:
-
-   - To make all entries title case (capitalizing each word): Use `value.toTitlecase()`.
-   - To make entries lowercase: Use `value.toLowercase()`.
-   - To trim extra whitespace: Use `value.trim()`.
-
 <div class="symbol-container">
     <p class="symbol">&#10042;</p>
 </div>
