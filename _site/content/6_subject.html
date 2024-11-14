@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-13 -->
+<!-- Last build date: 2024-11-14 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -134,9 +134,33 @@
 
 <p><br /></p>
 
-<h3 id="reconciliation">Reconciliation?</h3>
+<h3 id="reconciliation">Reconciliation</h3>
+
+<p>OpenRefine has a functionality that <em>should</em> allow user’s to reconcile data with external databases by matching names, subjects or entities to unique identifiers in those databases, standardizing language to specific schemas such as Getty AAT or LCSH. That said, there are complications due to API compatibility. Because the reconciliation process engages in a transfer of sharing data with the http address of these institutions, connection failures caused by security settings can occur, especially with our technology as an academic institution.</p>
+
+<p>This is what I encountered trying to reconcile with Getty’s databases and Library of Congress doesn’t even have a listed service in OpenRefine, likely due to a lack of standardized API endpoints needed for this type of integration.</p>
+
+<p>That said, I was able to successfully reconcile with other databases that may be useful for standardization, including Geonames for verifying location names, ORCID iD for bibliometric data and Open Library for general subject terms. To reconcile data:</p>
+
+<ul>
+  <li>Select the column that you would like to reconcile</li>
+  <li>Select the dropdown <code class="language-plaintext highlighter-rouge">Reconcile</code> &gt; <code class="language-plaintext highlighter-rouge">Start Reconciling</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Add Standard Service</code> and enter the http address from the <a href="https://reconciliation-api.github.io/testbench/#/">Reconciliation Service Test Branch</a></li>
+  <li>This will take you to an intermediary screen where you can select which areas of the database you would like to use, select the level of filtering and maximum number of “candidates” to return for each entity</li>
+  <li>After a good deal of processing, the candidates will generate in each of the cells and you have the option to select these options for either just the one entity or to apply them to all of the subjects in that column.</li>
+</ul>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
 
 <h3 id="export-the-standardized-data">Export the Standardized Data</h3>
+
+<p><br /></p>
+
+<p><strong>FINALLY</strong></p>
 
 <p>a. After standardizing both author and subject columns, export your project by going to <strong>Export</strong> &gt; <strong>Comma-separated value (CSV)</strong>.</p>
 

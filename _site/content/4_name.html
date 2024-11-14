@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-13 -->
+<!-- Last build date: 2024-11-14 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -131,6 +131,42 @@
     </div>
     
 <div class="my-4">
+
+<h3 id="remove-dates-and-unwanted-characters-from-name-fields">Remove dates and Unwanted Characters from Name Fields</h3>
+
+<p>One item that came up in this example was that some items had birth and death ranges that we needed to remove. While you can find and replace specific punctuation in Google Sheets, random sets of yyyy date ranges is a little trickier. Using OpenRefine,</p>
+
+<ul>
+  <li><strong>Select the column with the author names</strong></li>
+  <li><strong>Select the dropdown menu &gt; <code class="language-plaintext highlighter-rouge">Edit Cells</code> &gt; <code class="language-plaintext highlighter-rouge">Transform</code></strong></li>
+  <li><strong>Enter the following GREL expression</strong></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>value.replace(/,\s?\d{4}-?/, "")
+</code></pre></div></div>
+
+<h3 id="explanation-of-the-formula">Explanation of the Formula</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">value</code>: Refers to the content of each cell in the column.</li>
+  <li><code class="language-plaintext highlighter-rouge">.replace(...)</code>: Applies a regular expression to find and replace the birth date portion.</li>
+  <li><code class="language-plaintext highlighter-rouge">/,\s?\d{4}-?/</code>: This regular expression matches:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">,</code>: A comma</li>
+      <li><code class="language-plaintext highlighter-rouge">\s?</code>: An optional space</li>
+      <li><code class="language-plaintext highlighter-rouge">\d{4}</code>: Exactly four digits (representing the year)</li>
+      <li><code class="language-plaintext highlighter-rouge">-?</code>: An optional hyphen (to account for cases where the year might or might not be followed by a dash)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>This formula will remove any pattern like <code class="language-plaintext highlighter-rouge">, 1957-</code> or <code class="language-plaintext highlighter-rouge">,1957</code> from the names, leaving just the author’s name without the birth date.</p>
+
+<div class="symbol-container">
+    <p class="symbol">&#10042;</p>
+</div>
+
+<p><br /></p>
 
 <h3 id="standardizing-author-names-to-last-name-first-name-format">Standardizing Author Names to “Last Name, First Name” Format</h3>
 
