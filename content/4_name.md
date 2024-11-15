@@ -16,6 +16,8 @@ One item that came up in this example was that some items had birth and death ra
 value.replace(/,\s?\d{4}-?/, "")
 ```
 
+{% include gallery-figure.html img="or_14.gif" alt="Gif of the OpenRefine Interface Removing Dates and Unwanted Characters from Name Fields" caption="Removing Dates and Unwanted Characters from Name Fields" title="Removing Dates and Unwanted Characters from Name Fields" %}
+
 ### Explanation of the Formula
 
 - `value`: Refers to the content of each cell in the column.
@@ -49,17 +51,17 @@ c. **Enter the Transformation Expression**:
    - In the GREL transformation box, enter the following code to split and reorder names:
 
      ```
-     if(value.contains(" "), value.split(" ")[1] + ", " + value.split(" ")[0], value)
+    if(value.split(" ").length() == 3,
+   value.split(" ")[2] + " " + value.split(" ")[1] + ", " + value.split(" ")[0],
+   value.split(" ")[1] + ", " + value.split(" ")[0]
+)
      ```
 
-   - This expression checks if there’s a space in the name (indicating "First Last" format) and then splits the name into first and last. It then reorders it as "Last, First."
    - Click **“OK”** to apply the transformation.
 
+{% include gallery-figure.html img="or_15.gif" alt="Gif of the OpenRefine Interface Converting Author Names from First Name Last Name to Last Name, First Name" caption="Converting Author Names from First Name Last Name to Last Name, First Name" title="Converting Author Names from First Name Last Name to Last Name, First Name" %}
 
-d. **Handling Middle Names or Initials**: If you have middle names or initials that need to be preserved, you can use a slightly more advanced expression to handle names with additional components:
+1. **`value.split(" ").length() == 3`**: Checks if there are three parts in the name.
+2. **For Three-Part Names**: If the name has three parts (e.g., `"first name middle initial last name"`), it reorders to `"last name middle initial, first name"`.
+3. **For Two-Part Names**: If there are only two parts (e.g., `"first name last name"`), it reorders to `"last name, first name"`.
 
-    ```
-    if(value.contains(" "), value.split(" ")[-1] + ", " + value.split(" ")[0] + " " + value.slice(1,-1).join(" "), value)
-    ```
-
-   - This expression keeps the last name at the beginning, followed by the first name and any middle names or initials.

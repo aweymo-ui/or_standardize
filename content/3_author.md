@@ -18,6 +18,8 @@ b. **Choose “Edit cells” > “Split multi-valued cells…”**:
    - Enter `;` as the separator to split each name into its own cell within the same column.
    - This will separate names like “Painter, Charles G.; Simpson, William Ray; Parks, F.P.” into three individual rows for each name.
 
+{% include gallery-figure.html img="or_02.gif" alt="Gif image of the OpenRefine interface splitting named entities into distinct cells" caption="Splitting Multi-Value Cells" title="Splitting Multi-Value Cells" %}
+
 ### Formatting
 
 Before we cluster, I am noticing that many of the discrepancies between the author names are due to inconsistent whitespace. To correct these items or adjust for upper / lowercasing inconsistencies:
@@ -31,6 +33,8 @@ b. **Enter transformations** in GREL (General Refine Expression Language) to sta
    - To make all entries title case (capitalizing each word): Use `value.toTitlecase()`.
    - To make entries lowercase: Use `value.toLowercase()`.
    - To trim extra whitespace: Use `value.trim()`.
+
+{% include gallery-figure.html img="or_03.gif" alt="Gif of the OpenRefine Interface Trimming Whitespace From Column" caption="Trimming Whitespace From Column" title="Trimming Whitespace From Column" %}
 
 ### Clustering
 
@@ -48,6 +52,8 @@ c. Use different **clustering methods** (key collision, nearest neighbor, etc.) 
 
 d. **Review each cluster**: If you agree with OpenRefine’s grouping, type in the standardized name you want to use (e.g., “Mark Twain”) in the **“New Cell Value”** field and click **“Merge and Re-Cluster”** or **Merge and Close** if you are finished with all of the different algorithms you are interested in applying.
 
+{% include gallery-figure.html img="or_05.gif" alt="Gif of the OpenRefine Interface Clustering Entity Variations with Various Algorithms" caption="Clustering Entity Variations with Various Algorithms" title="Clustering Entity Variations with Various Algorithms" %}
+
 ### Group Names Back Together with Semicolons
 
 a. **Select the Creator Column**:
@@ -62,6 +68,8 @@ c. **Set the Separator**:
 
 d. **Click “OK”**:
    - This will apply the transformation and group the names back together in the same cells, separated by semicolons.
+
+{% include gallery-figure.html img="or_06.gif" alt="Gif of the OpenRefine Interface Joining Multi-Valued Cells To Complete This Process" caption="Joining Multi-Valued Cells To Complete This Process" title="Joining Multi-Valued Cells To Complete This Process" %}
 
 {% include alert.html text="That's it! This same process can be repeated on location, subject and any other fields needing standardization" color="light" align="center" %}
 

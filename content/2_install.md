@@ -30,6 +30,9 @@ gallery: true
 
    e. Click **“Create Project”** to import the data fully.
 
+
+{% include gallery-figure.html img="or_01.gif" alt="Gif image of the OpenRefine interface opening and formatting a CSV file" caption="Initial Import and Formatting Steps" title="Initial Import and Formatting Steps" %}
+
 <div class="symbol-container">
     <p class="symbol">&#10042;</p>
 </div>

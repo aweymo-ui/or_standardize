@@ -145,6 +145,9 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>value.replace(/,\s?\d{4}-?/, "")
 </code></pre></div></div>
 
+<figure class="figure d-block text-center p-3">
+    <a class="spotlight" href="/or_standardize/images/or_14.gif" title="Removing Dates and Unwanted Characters from Name Fields"><img data-src="/or_standardize/images/or_14.gif" alt="Gif of the OpenRefine Interface Removing Dates and Unwanted Characters from Name Fields" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Removing Dates and Unwanted Characters from Name Fields</figcaption></figure>
+
 <h3 id="explanation-of-the-formula">Explanation of the Formula</h3>
 
 <ul>
@@ -186,23 +189,26 @@
   <li>
     <p>In the GREL transformation box, enter the following code to split and reorder names:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(value.contains(" "), value.split(" ")[1] + ", " + value.split(" ")[0], value)
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    if(value.split(" ").length() == 3,
+   value.split(" ")[2] + " " + value.split(" ")[1] + ", " + value.split(" ")[0],
+   value.split(" ")[1] + ", " + value.split(" ")[0]
+)
 </code></pre></div>    </div>
   </li>
-  <li>This expression checks if there’s a space in the name (indicating “First Last” format) and then splits the name into first and last. It then reorders it as “Last, First.”</li>
-  <li>Click <strong>“OK”</strong> to apply the transformation.</li>
+  <li>
+    <p>Click <strong>“OK”</strong> to apply the transformation.</p>
+  </li>
 </ul>
 
-<p>d. <strong>Handling Middle Names or Initials</strong>: If you have middle names or initials that need to be preserved, you can use a slightly more advanced expression to handle names with additional components:</p>
+<figure class="figure d-block text-center p-3">
+    <a class="spotlight" href="/or_standardize/images/or_15.gif" title="Converting Author Names from First Name Last Name to Last Name, First Name"><img data-src="/or_standardize/images/or_15.gif" alt="Gif of the OpenRefine Interface Converting Author Names from First Name Last Name to Last Name, First Name" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Converting Author Names from First Name Last Name to Last Name, First Name</figcaption></figure>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```
-if(value.contains(" "), value.split(" ")[-1] + ", " + value.split(" ")[0] + " " + value.slice(1,-1).join(" "), value)
-```
-</code></pre></div></div>
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">value.split(" ").length() == 3</code></strong>: Checks if there are three parts in the name.</li>
+  <li><strong>For Three-Part Names</strong>: If the name has three parts (e.g., <code class="language-plaintext highlighter-rouge">"first name middle initial last name"</code>), it reorders to <code class="language-plaintext highlighter-rouge">"last name middle initial, first name"</code>.</li>
+  <li><strong>For Two-Part Names</strong>: If there are only two parts (e.g., <code class="language-plaintext highlighter-rouge">"first name last name"</code>), it reorders to <code class="language-plaintext highlighter-rouge">"last name, first name"</code>.</li>
+</ol>
 
-<ul>
-  <li>This expression keeps the last name at the beginning, followed by the first name and any middle names or initials.</li>
-</ul>
 
 
 </div>

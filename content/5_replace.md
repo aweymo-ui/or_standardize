@@ -22,4 +22,4 @@ To do simpler actions like finding and replacing a limited set in naming varianc
        - Otherwise, the cell value remains unchanged.
      - Click **OK** to apply the transformation.
 
-
+{% include gallery-figure.html img="or_07.gif" alt="Gif of the OpenRefine Interface Find and Replace Function" caption="Find and Replace Function" title="Find and Replace Function" %}
