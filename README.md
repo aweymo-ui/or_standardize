@@ -1,1 +1,2 @@
-# or_standardize
+# Using OpenRefine to Standardize Metadata Language
+A practical tutorial on using OpenRefine for metadata language standardization intended for faculty, staff, patrons and students at U of I. The focus of this workshop is to provide only the steps you need to perform these tasks. *Andrew Weymouth Fall 2024*
