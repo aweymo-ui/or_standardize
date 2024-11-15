@@ -68,7 +68,6 @@ The *Nearest Neighbor* method uses a "distance" measure to find strings that are
 #### Nearest Neighbor Algorithms
 
 - **Levenshtein Distance**: Measures the number of single-character edits (insertions, deletions, or substitutions) required to change one string into another. For example, "color" and "colour" have a small Levenshtein distance because only one letter differs.
-- **Jaccard Similarity**: Compares the similarity between two sets of characters or words. It’s often used to find matches when there’s a high probability of extra or missing words.
 - **PPM (Prediction by Partial Matching)**: Looks at repeated patterns and attempts to predict similarities based on how often parts of the string match.
 
 #### When to Use Nearest Neighbor
@@ -87,13 +86,6 @@ In OpenRefine, you’ll often adjust parameters to determine how strict or lenie
 
 - **Distance Threshold (Nearest Neighbor)**: Lowering the threshold makes clustering more lenient, grouping more items together, while a higher threshold makes it stricter, grouping only very close matches.
 - **Normalization (Key Collision)**: Options like lowercasing and removing whitespace standardize how values are treated, ensuring that "New York" and "new york" are considered the same.
-
-#### Combining Algorithms
-
-OpenRefine lets you re-cluster data after merging. For example:
-
-1. You can start with a broad Key Collision method, merging general clusters.
-2. Then, apply a Nearest Neighbor method for a more fine-grained cleanup.
 
 #### Example of Using Clustering in OpenRefine
 

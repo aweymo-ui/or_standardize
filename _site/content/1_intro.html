@@ -212,7 +212,6 @@ This method is one of the simplest approaches. It:
 
 <ul>
   <li><strong>Levenshtein Distance</strong>: Measures the number of single-character edits (insertions, deletions, or substitutions) required to change one string into another. For example, “color” and “colour” have a small Levenshtein distance because only one letter differs.</li>
-  <li><strong>Jaccard Similarity</strong>: Compares the similarity between two sets of characters or words. It’s often used to find matches when there’s a high probability of extra or missing words.</li>
   <li><strong>PPM (Prediction by Partial Matching)</strong>: Looks at repeated patterns and attempts to predict similarities based on how often parts of the string match.</li>
 </ul>
 
@@ -234,15 +233,6 @@ This method is one of the simplest approaches. It:
   <li><strong>Distance Threshold (Nearest Neighbor)</strong>: Lowering the threshold makes clustering more lenient, grouping more items together, while a higher threshold makes it stricter, grouping only very close matches.</li>
   <li><strong>Normalization (Key Collision)</strong>: Options like lowercasing and removing whitespace standardize how values are treated, ensuring that “New York” and “new york” are considered the same.</li>
 </ul>
-
-<h4 id="combining-algorithms">Combining Algorithms</h4>
-
-<p>OpenRefine lets you re-cluster data after merging. For example:</p>
-
-<ol>
-  <li>You can start with a broad Key Collision method, merging general clusters.</li>
-  <li>Then, apply a Nearest Neighbor method for a more fine-grained cleanup.</li>
-</ol>
 
 <h4 id="example-of-using-clustering-in-openrefine">Example of Using Clustering in OpenRefine</h4>
 
