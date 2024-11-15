@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-14 -->
+<!-- Last build date: 2024-11-15 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -136,14 +136,16 @@
 
 <h3 id="reconciliation">Reconciliation</h3>
 
-<p>OpenRefine has a functionality that <em>should</em> allow user’s to reconcile data with external databases by matching names, subjects or entities to unique identifiers in those databases, standardizing language to specific schemas such as Getty AAT or LCSH. That said, there are complications due to API compatibility. Because the reconciliation process engages in a transfer of sharing data with the http address of these institutions, connection failures caused by security settings can occur, especially with our technology as an academic institution.</p>
+<p>OpenRefine has a functionality that <em>should</em> allow user’s to reconcile data with external databases by matching names, subjects or entities to unique identifiers in those databases, standardizing language to specific schemas such as <a href="https://www.getty.edu/research/tools/vocabularies/aat/" target="_blank" rel="noopener">Getty AAT</a> or <a href="https://www.loc.gov/aba/publications/FreeLCSH/freelcsh.html" target="_blank" rel="noopener">LCSH</a>.</p>
 
-<p>This is what I encountered trying to reconcile with Getty’s databases and Library of Congress doesn’t even have a listed service in OpenRefine, likely due to a lack of standardized API endpoints needed for this type of integration.</p>
+<p>However, there are complications due to API compatibility. Because the reconciliation process engages in a transfer of sharing data with the http address of these institutions, connection failures caused by protection settings can occur, especially with our security parameters as an academic institution.</p>
+
+<p>For example, this is what I encountered trying to reconcile with Getty’s databases and Library of Congress doesn’t even have a listed service in OpenRefine, likely due to a lack of standardized API endpoints needed for this type of integration.</p>
 
 <figure class="figure d-block text-center p-3">
     <a class="spotlight" href="/or_standardize/images/or_11.gif" title="Failing to Connect with the Getty Vocabulary Database"><img data-src="/or_standardize/images/or_11.gif" alt="Gif of the OpenRefine Interface Failing to Connect with the Getty Vocabulary Database" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Failing to Connect with the Getty Vocabulary Database</figcaption></figure>
 
-<p>That said, I was able to successfully reconcile with other databases that may be useful for standardization, including Geonames for verifying location names, ORCID iD for bibliometric data and Open Library for general subject terms.</p>
+<p>That said, I was able to successfully reconcile with other databases that may be useful for standardization, including <a href="https://www.geonames.org/" target="_blank" rel="noopener">Geonames</a> for verifying location names, <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID iD</a> for bibliometric data and <a href="https://openlibrary.org/" target="_blank" rel="noopener">Open Library</a> for general subject terms.</p>
 
 <figure class="figure d-block text-center p-3">
     <a class="spotlight" href="/or_standardize/images/or_12.gif" title="Successfully Connecting with the Geonames Vocabulary Database"><img data-src="/or_standardize/images/or_12.gif" alt="Gif of the OpenRefine Interface Successfully Connecting with the Geonames Vocabulary Database" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Successfully Connecting with the Geonames Vocabulary Database</figcaption></figure>
@@ -153,7 +155,7 @@
 <ul>
   <li>Select the column that you would like to reconcile</li>
   <li>Select the dropdown <code class="language-plaintext highlighter-rouge">Reconcile</code> &gt; <code class="language-plaintext highlighter-rouge">Start Reconciling</code></li>
-  <li><code class="language-plaintext highlighter-rouge">Add Standard Service</code> and enter the http address from the <a href="https://reconciliation-api.github.io/testbench/#/">Reconciliation Service Test Branch</a></li>
+  <li><code class="language-plaintext highlighter-rouge">Add Standard Service</code> and enter the http address from the <a href="https://reconciliation-api.github.io/testbench/#/" target="_blank" rel="noopener">Reconciliation Service Test Bench</a></li>
   <li>This will take you to an intermediary screen where you can select which areas of the database you would like to use, select the level of filtering and maximum number of “candidates” to return for each entity</li>
   <li>After a good deal of processing, the candidates will generate in each of the cells and you have the option to select these options for either just the one entity or to apply them to all of the subjects in that column.</li>
 </ul>
@@ -171,12 +173,18 @@
 
 <p><strong>FINALLY</strong></p>
 
-<p>a. After standardizing both author and subject columns, export your project by going to <strong>Export</strong> &gt; <strong>Comma-separated value (CSV)</strong>.</p>
-
-<p>b. Verify that the standardized data displays correctly in UTF-8 encoding, ensuring consistency and compatibility for CollectionBuilder requirements.</p>
+<p>After standardizing, export your project by going to <strong>Export</strong> &gt; <strong>Comma-separated value (CSV)</strong></p>
 
 <figure class="figure d-block text-center p-3">
     <a class="spotlight" href="/or_standardize/images/or_16.gif" title="Exporting CSV"><img data-src="/or_standardize/images/or_16.gif" alt="Gif of the OpenRefine Interface Exporting CSV" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Exporting CSV</figcaption></figure>
+
+<div class="alert feature-alert alert-light text-center" role="alert">
+<p>About the Author: Andrew Weymouth is the Digital Initiatives Librarian at University of Idaho, primarily focusing on static web design to curate the institution’s special collections and partner with faculty and graduate students on fellowship projects. He has also created digital scholarship projects for the universities of Oregon, Washington and the Tacoma Northwest Room archives, ranging from long form audio public history to architectural databases and network visualizations. He writes about labor, architecture, underrepresented communities and using digital scholarship methods to survey equity in archival collections.</p>
+
+</div>
+
+<div class="text-center mb-3"><a class="btn btn-4 btn-light" href="https://aweymo.github.io/base/" target="_blank" rel="noopener">More Workshops from the Author</a>
+</div>
 
 
 </div>

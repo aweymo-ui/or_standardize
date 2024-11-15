@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-14 -->
+<!-- Last build date: 2024-11-15 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -134,12 +134,12 @@
 
 <h3 id="remove-dates-and-unwanted-characters-from-name-fields">Remove dates and Unwanted Characters from Name Fields</h3>
 
-<p>One item that came up in this example was that some items had birth and death ranges that we needed to remove. While you can find and replace specific punctuation in Google Sheets, random sets of yyyy date ranges is a little trickier. Using OpenRefine,</p>
+<p>One item that came up in this example was that some items had birth and death ranges that we needed to remove. While you can find and replace specific punctuation in Google Sheets, random sets of yyyy date ranges is a little trickier. Using OpenRefine:</p>
 
 <ul>
   <li><strong>Select the column with the author names</strong></li>
   <li><strong>Select the dropdown menu &gt; <code class="language-plaintext highlighter-rouge">Edit Cells</code> &gt; <code class="language-plaintext highlighter-rouge">Transform</code></strong></li>
-  <li><strong>Enter the following GREL expression</strong></li>
+  <li><strong>Enter the following GREL expression</strong>:</li>
 </ul>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>value.replace(/,\s?\d{4}-?/, "")
@@ -173,35 +173,27 @@
 
 <h3 id="standardizing-author-names-to-last-name-first-name-format">Standardizing Author Names to “Last Name, First Name” Format</h3>
 
-<p>While the names in the example metadata we are using were already formatted correctly, the following steps will show you how to transform names from “First Last” to “Last, First” format, using General Refine Expression Language (GREL) to split and reorder the names.</p>
+<p>While the names in the example metadata we are using were already formatted correctly, the following steps will show you how to transform names from “First Last” to “Last, First” format, using GREL to split and reorder the names.</p>
 
-<p>a. <strong>Identify the Author Column</strong>: Select the column where author names are listed.</p>
+<p>a. <strong>Select Dropdown of Author Column</strong></p>
 
-<p>b. <strong>Create a Text Transformation</strong>:</p>
-<ul>
-  <li>Click on the column dropdown menu.</li>
-  <li>Go to <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</li>
-</ul>
+<p>b. <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong></p>
 
 <p>c. <strong>Enter the Transformation Expression</strong>:</p>
 
-<ul>
-  <li>
-    <p>In the GREL transformation box, enter the following code to split and reorder names:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ```
+if(value.split(" ").length() == 3,    value.split(" ")[2] + " " + value.split(" ")[1] + ", " + value.split(" ")[0],    value.split(" ")[1] + ", " + value.split(" ")[0] )
+ ```
+</code></pre></div></div>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    if(value.split(" ").length() == 3,
-   value.split(" ")[2] + " " + value.split(" ")[1] + ", " + value.split(" ")[0],
-   value.split(" ")[1] + ", " + value.split(" ")[0]
-)
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Click <strong>“OK”</strong> to apply the transformation.</p>
-  </li>
+<ul>
+  <li>Click <strong>“OK”</strong> to apply the transformation.</li>
 </ul>
 
 <figure class="figure d-block text-center p-3">
     <a class="spotlight" href="/or_standardize/images/or_15.gif" title="Converting Author Names from First Name Last Name to Last Name, First Name"><img data-src="/or_standardize/images/or_15.gif" alt="Gif of the OpenRefine Interface Converting Author Names from First Name Last Name to Last Name, First Name" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Converting Author Names from First Name Last Name to Last Name, First Name</figcaption></figure>
+
+<h3 id="explanation-of-the-formula-1">Explanation of the Formula</h3>
 
 <ol>
   <li><strong><code class="language-plaintext highlighter-rouge">value.split(" ").length() == 3</code></strong>: Checks if there are three parts in the name.</li>

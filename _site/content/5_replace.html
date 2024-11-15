@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-14 -->
+<!-- Last build date: 2024-11-15 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -134,28 +134,26 @@
 
 <p><br /></p>
 
-<p>To do simpler actions like finding and replacing a limited set in naming variances like we need to do in the <code class="language-plaintext highlighter-rouge">pubtype</code> column:</p>
+<p>To do simpler actions like finding and replacing a limited set in naming variances like we need to do in the <code class="language-plaintext highlighter-rouge">pubtype</code> column for this example:</p>
+
+<p>a. <strong>Select the dropdown menu of the <code class="language-plaintext highlighter-rouge">pubtype</code> column</strong></p>
+
+<p>b. <strong>Edit cells</strong> &gt; <strong>Transform</strong></p>
+
+<p>c. <strong>Enter GREL expression</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(value == "Master Gardener", "Master Gardener Program Handbook",
+if(value == "Pacific Northwest Extension", "Pacific Northwest Extension Publications", value))
+</code></pre></div></div>
+
+<p>d. Click <strong>OK</strong> to apply the transformation</p>
+
+<h3 id="explanation">Explanation:</h3>
 
 <ul>
-  <li>Select the dropdown menu of the <code class="language-plaintext highlighter-rouge">pubtype</code> column.</li>
-  <li><strong>Apply Transformations</strong>:
-    <ul>
-      <li>Choose <strong>Edit cells</strong> &gt; <strong>Transform…</strong> to open the transformation dialog.</li>
-      <li>Use the following GREL expression to perform multiple replacements in one step:
-        <pre><code class="language-grel">if(value == "Master Gardener", "Master Gardener Program Handbook",
-if(value == "Pacific Northwest Extension", "Pacific Northwest Extension Publications", value))
-</code></pre>
-      </li>
-      <li><strong>Explanation</strong>:
-        <ul>
-          <li>The expression checks if the cell contains “Master Gardener” and changes it to “Master Gardener Program Handbook.”</li>
-          <li>If it contains “Pacific Northwest Extension,” it will be replaced with “Pacific Northwest Extension Publications.”</li>
-          <li>Otherwise, the cell value remains unchanged.</li>
-        </ul>
-      </li>
-      <li>Click <strong>OK</strong> to apply the transformation.</li>
-    </ul>
-  </li>
+  <li>The expression checks if the cell contains “Master Gardener” and changes it to “Master Gardener Program Handbook.”</li>
+  <li>If it contains “Pacific Northwest Extension,” it will be replaced with “Pacific Northwest Extension Publications.”</li>
+  <li>Otherwise, the cell value remains unchanged</li>
 </ul>
 
 <figure class="figure d-block text-center p-3">

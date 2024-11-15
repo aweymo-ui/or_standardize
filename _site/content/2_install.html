@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-14 -->
+<!-- Last build date: 2024-11-15 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -134,12 +134,14 @@
 
 <h3 id="install-openrefine">Install OpenRefine</h3>
 
-<p>a. <strong>Download OpenRefine</strong> from <a href="https://openrefine.org/">openrefine.org</a> for your operating system.</p>
+<p>a. <a href="https://openrefine.org/download" target="_blank" rel="noopener"><strong>Download OpenRefine</strong></a></p>
 
-<p>b. <strong>Install and launch</strong> OpenRefine following the instructions provided on the site.</p>
-<ul>
-  <li>OpenRefine will open in your web browser but runs locally on your computer.</li>
-</ul>
+<p>b. <strong>Install and launch</strong> OpenRefine following the instructions provided on the site according to your device.</p>
+
+<div class="alert feature-alert alert-light text-center" role="alert">
+<p>Note: When you launch OpenRefine, it will run in your default web browser but it is actually running locally on your machine, similar to running a Git site in development locally.</p>
+
+</div>
 
 <div class="symbol-container">
     <p class="symbol">&#10042;</p>
@@ -149,15 +151,15 @@
 
 <h3 id="load-your-csv-file">Load Your CSV File</h3>
 
-<p>a. Click <strong>“Create Project”</strong> on the OpenRefine homepage.</p>
+<p>a. Select <strong>“Create Project”</strong> on the OpenRefine homepage</p>
 
-<p>b. Click <strong>“Choose Files”</strong> and select your CSV file from your computer.</p>
+<p>b. Select <strong>“Choose Files”</strong> and select your CSV file from your computer</p>
 
-<p>c. Press <strong>“Next”</strong> to load the data. OpenRefine will display a preview of the data for you to verify that it looks correct.</p>
+<p>c. Select <strong>“Next”</strong> to load the data. OpenRefine will display a preview of the data for you to verify that it looks correct</p>
 
 <p>d. In the next intermediary screen, adjust character encoding to <code class="language-plaintext highlighter-rouge">UTF-8</code>, set column separation to CSV, have the <code class="language-plaintext highlighter-rouge">Parse next 1 line as headers</code> selected and adjust the project name as needed. The <code class="language-plaintext highlighter-rouge">Store Blank Rows</code>, <code class="language-plaintext highlighter-rouge">Store Blank Cells as Nulls</code> and <code class="language-plaintext highlighter-rouge">Use Character " to Enclose Cells Containing Column Separators</code> should be selected by default. These simply ensure data integrity by not erasing null rows and cells and not separating commas within cells, such as <code class="language-plaintext highlighter-rouge">Smith, John</code></p>
 
-<p>e. Click <strong>“Create Project”</strong> to import the data fully.</p>
+<p>e. Then, select <strong>“Create Project”</strong></p>
 
 <figure class="figure d-block text-center p-3">
     <a class="spotlight" href="/or_standardize/images/or_01.gif" title="Initial Import and Formatting Steps"><img data-src="/or_standardize/images/or_01.gif" alt="Gif image of the OpenRefine interface opening and formatting a CSV file" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Initial Import and Formatting Steps</figcaption></figure>

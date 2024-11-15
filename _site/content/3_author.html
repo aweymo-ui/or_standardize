@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
 
-<!-- Last build date: 2024-11-14 -->
+<!-- Last build date: 2024-11-15 -->
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -139,11 +139,11 @@
 <h3 id="split-the-creator-field-into-individual-names">Split the Creator Field into Individual Names</h3>
 
 <div class="alert feature-alert alert-light text-center" role="alert">
-<p>Note: You will only need to do this step  and the final joining step with columns that contain multiple items separated by semi-colons</p>
+<p>Note: You will only need to do this step  and the final joining step with columns that contain multiple items separated by semi-colons. In this example, correcting the Publisher field would not need this step as it is a single value column.</p>
 
 </div>
 
-<p>a. <strong>Select the Creator Column</strong>: In the column menu for the creator field, click the dropdown.</p>
+<p>a. <strong>Select the dropdown of the Creator Column</strong></p>
 
 <p>b. <strong>Choose “Edit cells” &gt; “Split multi-valued cells…”</strong>:</p>
 <ul>
@@ -156,18 +156,18 @@
 
 <h3 id="formatting">Formatting</h3>
 
-<p>Before we cluster, I am noticing that many of the discrepancies between the author names are due to inconsistent whitespace. To correct these items or adjust for upper / lowercasing inconsistencies:</p>
+<p>Before we cluster, I’m noticing many of the discrepancies between the author names are due to inconsistent whitespace. To correct these items or adjust for upper / lowercasing inconsistencies you may encounter:</p>
 
 <h3 id="lowercasing-and-removing-whitespace">Lowercasing and Removing Whitespace</h3>
 
 <p>a. In the column menu (e.g., location name), choose <strong>“Edit cells”</strong> &gt; <strong>“Transform…”</strong>.</p>
 
-<p>b. <strong>Enter transformations</strong> in GREL (General Refine Expression Language) to standardize formats:</p>
+<p>b. <strong>Enter transformations</strong> to standardize formats:</p>
 
 <ul>
-  <li>To make all entries title case (capitalizing each word): Use <code class="language-plaintext highlighter-rouge">value.toTitlecase()</code>.</li>
-  <li>To make entries lowercase: Use <code class="language-plaintext highlighter-rouge">value.toLowercase()</code>.</li>
-  <li>To trim extra whitespace: Use <code class="language-plaintext highlighter-rouge">value.trim()</code>.</li>
+  <li>To make all entries title case: Enter <code class="language-plaintext highlighter-rouge">value.toTitlecase()</code>.</li>
+  <li>To make entries lowercase: Enter <code class="language-plaintext highlighter-rouge">value.toLowercase()</code>.</li>
+  <li>To trim leading or following whitespace: Enter <code class="language-plaintext highlighter-rouge">value.trim()</code>.</li>
 </ul>
 
 <figure class="figure d-block text-center p-3">
@@ -183,16 +183,7 @@
   <li>A dialog box will open, showing clusters of similar values. For example, it might group “Mark Twain” and “Twain, Mark” as potential matches.</li>
 </ul>
 
-<p>c. Use different <strong>clustering methods</strong> (key collision, nearest neighbor, etc.) to identify similar entries.</p>
-
-<ul>
-  <li>
-    <p><strong>Key Collision</strong>: Groups based on a phonetic algorithm that ignores small differences.</p>
-  </li>
-  <li>
-    <p><strong>Nearest Neighbor</strong>: Groups values based on spelling similarity, which is often helpful for misspelled entries.</p>
-  </li>
-</ul>
+<p>c. Use different <strong>clustering methods</strong> discussed in the previous section to identify similar entries.</p>
 
 <p>d. <strong>Review each cluster</strong>: If you agree with OpenRefine’s grouping, type in the standardized name you want to use (e.g., “Mark Twain”) in the <strong>“New Cell Value”</strong> field and click <strong>“Merge and Re-Cluster”</strong> or <strong>Merge and Close</strong> if you are finished with all of the different algorithms you are interested in applying.</p>
 
@@ -201,26 +192,16 @@
 
 <h3 id="group-names-back-together-with-semicolons">Group Names Back Together with Semicolons</h3>
 
-<p>a. <strong>Select the Creator Column</strong>:</p>
-<ul>
-  <li>In the column menu for the creator field, click the dropdown menu for the column that contains the individual names you previously split.</li>
-</ul>
+<p>a. <strong>Select the Dropdown of the Column</strong>:</p>
 
 <p>b. <strong>Choose “Edit cells” &gt; “Join multi-valued cells…”</strong>:</p>
-<ul>
-  <li>This will combine the separate values into one cell.</li>
-</ul>
 
 <p>c. <strong>Set the Separator</strong>:</p>
 <ul>
-  <li>In the dialog box that appears, enter <strong><code class="language-plaintext highlighter-rouge">;</code></strong> as the separator (the same one used when you split the names).</li>
-  <li>This will concatenate the names with a semicolon between each name.</li>
+  <li>In the modal that appears, enter <strong><code class="language-plaintext highlighter-rouge">;</code></strong> as the separator (the same one used when you split the names).</li>
 </ul>
 
 <p>d. <strong>Click “OK”</strong>:</p>
-<ul>
-  <li>This will apply the transformation and group the names back together in the same cells, separated by semicolons.</li>
-</ul>
 
 <figure class="figure d-block text-center p-3">
     <a class="spotlight" href="/or_standardize/images/or_06.gif" title="Joining Multi-Valued Cells To Complete This Process"><img data-src="/or_standardize/images/or_06.gif" alt="Gif of the OpenRefine Interface Joining Multi-Valued Cells To Complete This Process" class="figure-img img-fluid lazyload" /></a><figcaption class="figure-caption">Joining Multi-Valued Cells To Complete This Process</figcaption></figure>
