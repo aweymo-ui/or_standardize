@@ -81,16 +81,7 @@ In OpenRefine, you’ll often adjust parameters to determine how strict or lenie
 - **Distance Threshold (Nearest Neighbor)**: Lowering the threshold makes clustering more lenient, grouping more items together, while a higher threshold makes it stricter, grouping only very close matches.
 - **Normalization (Key Collision)**: Options like lowercasing and removing whitespace standardize how values are treated, ensuring that "New York" and "new york" are considered the same.
 
-{% include gallery-figure.html img="or_17.png" alt="OpenRefine Interface Detail of the Radius or Threshold of the Algorithm That You Can Lower to Make More Strict or Raise to Make More Lenient" caption="Detail of the Radius or Threshold of the Algorithm That You Can Lower to Make More Strict or Raise to Make More Lenient" title="Detail of the Radius or Threshold of the Algorithm That You Can Lower to Make More Strict or Raise to Make More Lenient" %}
-
-#### Example of Using Clustering in OpenRefine
-
-1. Suppose you have a column with author names like “Mark Twain,” “Twain, Mark,” “Mark Twian,” and “M. Twain.”
-2. Using the Key Collision clustering method:
-    - OpenRefine might group “Mark Twain” and “Twain, Mark” because they sound alike or share a similar fingerprint.
-3. Then, using the Nearest Neighbor method:
-    - OpenRefine might identify “Mark Twian” as a close match to “Mark Twain” because the edit distance is small.
-
+{% include gallery-figure.html img="or_17.png" alt="OpenRefine Interface Detail of the Radius or Threshold" caption="Detail of the Radius or Threshold" title="Detail of the Radius or Threshold" %}
 
 For a in depth explanation of all of the algorithms and how they function, visit OpenRefine's guide [here!](https://openrefine.org/docs/technical-reference/clustering-in-depth){:target="_blank" rel="noopener"}
 

@@ -1,6 +1,6 @@
 ---
-title: Formatting and Exporting
-nav: Formatting and Exporting
+title: Reconciliation and Exporting
+nav: Reconciliation and Exporting
 gallery: true
 ---
 
@@ -8,9 +8,9 @@ gallery: true
 
 ### Reconciliation
 
-OpenRefine has a functionality that *should* allow user's to reconcile data with external databases by matching names, subjects or entities to unique identifiers in those databases, standardizing language to specific schemas such as [Getty AAT](https://www.getty.edu/research/tools/vocabularies/aat/){:target="_blank" rel="noopener"} or [LCSH](https://www.loc.gov/aba/publications/FreeLCSH/freelcsh.html){:target="_blank" rel="noopener"}. 
+OpenRefine has a functionality that *should* allow user's to reconcile data with external databases by matching names, subjects or entities to unique identifiers in those databases, standardizing language to specific schemas such as [Getty Art & Architecture Thesaurus](https://www.getty.edu/research/tools/vocabularies/aat/){:target="_blank" rel="noopener"} or [Library of Congress Subject Headings](https://www.loc.gov/aba/publications/FreeLCSH/freelcsh.html){:target="_blank" rel="noopener"}. 
 
-However, there are complications due to API compatibility. Because the reconciliation process engages in a transfer of sharing data with the http address of these institutions, connection failures caused by protection settings can occur, especially with our security parameters as an academic institution. 
+However, there are complications due to **Application Programming Interface (API)** compatibility. An API is a set of rules and protocols that allow different software applications to communicate with each other. It acts as a bridge, enabling one application to access the functionality or data of another application in a structured way. Because the reconciliation process engages in a transfer of data, connection failures caused by protection settings can occur, especially with our security parameters as an academic institution. 
 
 For example, this is what I encountered trying to reconcile with Getty's databases and Library of Congress doesn't even have a listed service in OpenRefine, likely due to a lack of standardized API endpoints needed for this type of integration. 
 
